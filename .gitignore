@@ -1,0 +1,11 @@
+datasets/
+output/
+submission/
+
+results/*
+!results/attacker/
+results/attacker/*
+!results/attacker/summary.csv
+!results/attacker/raw_results.csv
+!results/attacker/plots/
+!results/attacker/plots/*.png
