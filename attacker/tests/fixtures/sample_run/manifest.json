@@ -1,0 +1,12 @@
+{
+  "phase": 4,
+  "p": 0.9,
+  "seed": 101,
+  "delay_mode": "none",
+  "spy_selection_method": "high_degree",
+  "spy_nodes": [
+    "n4"
+  ],
+  "run_advanced": true,
+  "simulations_per_candidate": 10
+}

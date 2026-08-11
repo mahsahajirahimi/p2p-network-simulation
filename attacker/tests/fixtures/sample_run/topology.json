@@ -1,0 +1,16 @@
+{
+  "nodes": [
+    {"node_id": "n1", "cluster_id": "a", "x": 0, "y": 0},
+    {"node_id": "n2", "cluster_id": "a", "x": 50, "y": 0},
+    {"node_id": "n3", "cluster_id": "b", "x": 100, "y": 0},
+    {"node_id": "n4", "cluster_id": "b", "x": 150, "y": 0},
+    {"node_id": "n5", "cluster_id": null, "x": 100, "y": 50}
+  ],
+  "edges": [
+    {"source": "n1", "target": "n2", "base_delay": 0.05},
+    {"source": "n2", "target": "n3", "base_delay": 0.05},
+    {"source": "n3", "target": "n4", "base_delay": 0.05},
+    {"source": "n3", "target": "n5", "base_delay": 0.05},
+    {"source": "n4", "target": "n5", "base_delay": 0.07}
+  ]
+}

@@ -4,7 +4,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-import topology as topo_mod
+from . import topology as topo_mod
 
 
 def plot_topology(topology, out_path):
