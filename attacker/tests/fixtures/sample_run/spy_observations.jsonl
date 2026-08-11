@@ -1,0 +1,3 @@
+{"packet_id":"pkt_001","spy_id":"n4","from_node":"n3","received_at":0.155,"state":"STEM"}
+{"packet_id":"pkt_002","spy_id":"n4","from_node":"n5","received_at":1.121,"state":"FLUFF"}
+{"packet_id":"pkt_003","spy_id":"n4","from_node":"n3","received_at":2.082,"state":"FLUFF"}
