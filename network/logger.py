@@ -10,7 +10,7 @@ def format_log_line(timestamp, node_id, action, packet_id, extra_data=""):
 
 def logger_process_main(log_queue, log_path):
     os.makedirs(os.path.dirname(log_path) or ".", exist_ok=True)
-    with open(log_path, "a", encoding="utf-8") as f:
+    with open(log_path, "w", encoding="utf-8") as f:
         while True:
             item = log_queue.get()
             if item is None:

@@ -3,7 +3,7 @@ import math
 import random
 from collections import deque
 
-import config
+from . import config
 
 
 class TopologyGenerationError(RuntimeError):
@@ -218,15 +218,23 @@ def _cluster_has_redundant_links(n, adjacency, cluster_of, cluster_id):
 
 def generate_topology(num_nodes=None, seed=None, max_attempts=100):
 
+    if num_nodes is not None and not config.MIN_NODES <= num_nodes <= config.MAX_NODES:
+        raise ValueError(
+            f"num_nodes must be between {config.MIN_NODES} and {config.MAX_NODES}"
+        )
+
     if seed is None:
         seed = random.randrange(1_000_000_000)
     base_rng = random.Random(seed)
+    # Draw the random node count exactly once, outside the retry loop. Consuming
+    # this value even when num_nodes is explicit keeps seeded regeneration
+    # identical to the original random-sized topology.
+    randomly_selected_count = base_rng.randint(config.MIN_NODES, config.MAX_NODES)
+    n = num_nodes if num_nodes is not None else randomly_selected_count
 
     for attempt in range(max_attempts):
         attempt_seed = base_rng.randrange(1_000_000_000)
         rng = random.Random(attempt_seed)
-
-        n = num_nodes or rng.randint(config.MIN_NODES, config.MAX_NODES)
 
         placement = _place_nodes(rng, n)
         if placement is None:
